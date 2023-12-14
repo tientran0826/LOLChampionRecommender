@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Champion Selection</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+</head>
+<body>
+    <!-- Your HTML content goes here -->
+    <body>
+        <div id="loadingOverlay" class="loading-overlay hidden">
+            <div class="loader"></div>
+        </div>
+        <header class="page-header">
+            <h1 class="page-title">Champion Recommender</h1>
+        </header>
+        <div class="container mt-4 fade-in">
+            <div class="champion-selection-container">
+            <div class="row mb-3">
+                <div class="title-container">
+                    <h2 class="title-text">Đội hình của bạn</h2>
+                </div>
+            </div>
+    
+            <div class="row justify-content-center mb-5">
+                <div id="team1" class="d-flex">
+                    <!-- Champion boxes for team 1 will be added here -->
+                </div>
+            </div>
+    
+            <div class="row mb-3">
+                <div class="title-container">
+                    <h2 class="title-text">Đội hình đối phương</h2>
+                </div>
+            </div>
+    
+            <div class="row justify-content-center">
+                <div id="team2" class="d-flex">
+                    <!-- Champion boxes for team 2 will be added here -->
+                </div>
+            </div>
+    
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <button id="clearButton" class="btn btn-primary mr-2">Đặt lại</button>
+                    <button id="suggestChampionButton" class="btn btn-secondary">Gợi ý tướng</button>
+                  
+
+                </div>
+            </div>
+        </div>
+        <div class="recommendation-results-container fade-in">
+            <div id="stats-container">
+                <!-- Renamed from 'result-container' to 'stats-container' -->
+                <!-- Champion stats results will be displayed here -->
+            </div>
+        </div>
+        </div>
+    
+        <!-- Modal -->
+        <div id="championModal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Champion Selection</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="championSearch" class="form-control mb-3" placeholder="Search for champions..." autocomplete="off">
+                        <div class="champion-grid">
+                            <!-- Champion items will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!-- Add this inside your HTML body -->
+
+    <div id="notification" class="notification">
+        <span id="notification-text" class="notification-text"></span>
+        
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 tientran0826. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- Link to your JavaScript file -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

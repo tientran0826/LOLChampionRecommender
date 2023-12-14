@@ -1,0 +1,8 @@
+/.ipynb_checkpoints/*
+.env
+/logs/__pycache__/*
+/__pycache__/*
+/.vscode/*
+/recommend_website/__pycache__/*
+/logs/__pycache__/*
+/env/*
