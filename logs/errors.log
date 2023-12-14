@@ -1,0 +1,58 @@
+14-Dec-23 22:08:16 - ERROR - Error fetching synergy_matrix from S3: [Errno 2] No such file or directory: 'model_matrix\\synergy_matrix_2023-12-14.json'
+Traceback (most recent call last):
+  File "c:\Users\asus1\Downloads\LOLChampionRecommender\recommend_website\app.py", line 55, in get_matrix_from_s3
+    with open(filepath, 'w') as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'model_matrix\\synergy_matrix_2023-12-14.json'
+14-Dec-23 22:08:16 - ERROR - Error fetching counter_matrix from S3: [Errno 2] No such file or directory: 'model_matrix\\counter_matrix_2023-12-14.json'
+Traceback (most recent call last):
+  File "c:\Users\asus1\Downloads\LOLChampionRecommender\recommend_website\app.py", line 55, in get_matrix_from_s3
+    with open(filepath, 'w') as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'model_matrix\\counter_matrix_2023-12-14.json'
+14-Dec-23 22:09:21 - ERROR - Error fetching synergy_matrix from S3: [Errno 2] No such file or directory: 'model_matrix\\synergy_matrix_2023-12-14.json'
+Traceback (most recent call last):
+  File "c:\Users\asus1\Downloads\LOLChampionRecommender\recommend_website\app.py", line 55, in get_matrix_from_s3
+    with open(filepath, 'w') as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'model_matrix\\synergy_matrix_2023-12-14.json'
+14-Dec-23 22:09:22 - ERROR - Error fetching counter_matrix from S3: [Errno 2] No such file or directory: 'model_matrix\\counter_matrix_2023-12-14.json'
+Traceback (most recent call last):
+  File "c:\Users\asus1\Downloads\LOLChampionRecommender\recommend_website\app.py", line 55, in get_matrix_from_s3
+    with open(filepath, 'w') as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'model_matrix\\counter_matrix_2023-12-14.json'
+14-Dec-23 22:09:22 - ERROR - Error: Failed to fetch matrices from S3 
+Traceback (most recent call last):
+  File "c:\Users\asus1\Downloads\LOLChampionRecommender\recommend_website\app.py", line 103, in receive_champion_data
+    raise ValueError("Failed to fetch matrices from S3")
+ValueError: Failed to fetch matrices from S3
+14-Dec-23 22:10:35 - ERROR - Error fetching synergy_matrix from S3: [Errno 2] No such file or directory: './model_matrix\\synergy_matrix_2023-12-14.json'
+Traceback (most recent call last):
+  File "c:\Users\asus1\Downloads\LOLChampionRecommender\recommend_website\app.py", line 55, in get_matrix_from_s3
+    with open(filepath, 'w') as file:
+FileNotFoundError: [Errno 2] No such file or directory: './model_matrix\\synergy_matrix_2023-12-14.json'
+14-Dec-23 22:10:37 - ERROR - Error fetching counter_matrix from S3: [Errno 2] No such file or directory: './model_matrix\\counter_matrix_2023-12-14.json'
+Traceback (most recent call last):
+  File "c:\Users\asus1\Downloads\LOLChampionRecommender\recommend_website\app.py", line 55, in get_matrix_from_s3
+    with open(filepath, 'w') as file:
+FileNotFoundError: [Errno 2] No such file or directory: './model_matrix\\counter_matrix_2023-12-14.json'
+14-Dec-23 22:10:37 - ERROR - Error: Failed to fetch matrices from S3 
+Traceback (most recent call last):
+  File "c:\Users\asus1\Downloads\LOLChampionRecommender\recommend_website\app.py", line 103, in receive_champion_data
+    raise ValueError("Failed to fetch matrices from S3")
+ValueError: Failed to fetch matrices from S3
+14-Dec-23 22:12:06 - ERROR - Error: expected str, bytes or os.PathLike object, not list 
+Traceback (most recent call last):
+  File "c:\Users\asus1\Downloads\LOLChampionRecommender\recommend_website\app.py", line 96, in receive_champion_data
+    synergy_matrix = get_matrix_from_s3(bucket_name, 'synergy_matrix')
+  File "c:\Users\asus1\Downloads\LOLChampionRecommender\recommend_website\app.py", line 36, in get_matrix_from_s3
+    filepath = os.path.join(sys.path,'model_matrix', filename)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\lib\ntpath.py", line 104, in join
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not list
+14-Dec-23 22:12:32 - ERROR - Error: expected str, bytes or os.PathLike object, not list 
+Traceback (most recent call last):
+  File "c:\Users\asus1\Downloads\LOLChampionRecommender\recommend_website\app.py", line 96, in receive_champion_data
+    synergy_matrix = get_matrix_from_s3(bucket_name, 'synergy_matrix')
+  File "c:\Users\asus1\Downloads\LOLChampionRecommender\recommend_website\app.py", line 36, in get_matrix_from_s3
+    filepath = os.path.join(sys.path,'model_matrix', filename)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\lib\ntpath.py", line 104, in join
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not list

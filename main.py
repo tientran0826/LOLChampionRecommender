@@ -18,7 +18,7 @@ def get_matrix_from_s3(bucket_name, matrix_name):
         matrix = json.loads(matrix_data)
         return matrix
     except Exception as e:
-        print(f"Error fetching {matrix_name} from S3: {str(e)}")
+        log.exception(f"Error fetching {matrix_name} from S3: {str(e)}")
         return None
 
 def run_tasks():

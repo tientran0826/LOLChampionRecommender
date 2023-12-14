@@ -6,10 +6,11 @@ from datetime import datetime
 import os
 from model import ChampionRecModel
 import sys
-import os
+original_sys_path = sys.path.copy()
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
+from logs.logging import log
 from configs import AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY_ID, REGION_NAME
 
 app = Flask(__name__)
@@ -32,17 +33,17 @@ table = dynamodb.Table('Champions')
 def get_matrix_from_s3(bucket_name, matrix_name):
     today = datetime.now().strftime("%Y-%m-%d")
     filename = f"{matrix_name}_{today}.json"
-    filepath = os.path.join('recommend_website','model_matrix', filename)
-
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    filepath = os.path.join(script_dir, 'model_matrix', filename)
     # Check if the file already exists
     if os.path.exists(filepath):
-        print(f"Reading {filename} from local storage.")
+        log.info(f"Reading {filename} from local storage.")
         with open(filepath, 'r') as file:
             matrix = json.load(file)
         return matrix
     else:
         try:
-            print(f"Fetching {filename} from S3.")
+            log.info(f"Fetching {filename} from S3.")
             # Use the s3 client's get_object method
             response = s3_client.get_object(Bucket=bucket_name, Key=f"{matrix_name}.json")
             matrix_data = response['Body'].read().decode('utf-8')
@@ -54,7 +55,7 @@ def get_matrix_from_s3(bucket_name, matrix_name):
 
             return matrix
         except Exception as e:
-            print(f"Error fetching {matrix_name} from S3: {str(e)}")
+            log.exception(f"Error fetching {matrix_name} from S3: {str(e)}")
             return None
 
 @app.route('/get_champion_data')
@@ -108,8 +109,8 @@ def receive_champion_data():
  
         return jsonify({"modelResult": parsed_result})
     except Exception as e:
-        print("Error:", str(e))
-        return jsonify({"error": "An error occurred while processing the data"}), 500
+        log.exception(f"Error: {str(e)} ")
+        return jsonify({"exception": "An exception occurred while processing the data"}), 500
 
 
 @app.route('/')
